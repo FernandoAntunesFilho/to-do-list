@@ -1,10 +1,11 @@
 import React from 'react';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class Header extends React.Component {
-  render () {
+  render() {
     return (
       <h1>Minha Lista de Tarefas</h1>
-    )
+    );
   }
 }
 
