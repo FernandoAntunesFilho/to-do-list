@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class NewTaskBar extends React.Component {
@@ -15,12 +16,11 @@ class NewTaskBar extends React.Component {
   }
 
   saveTask() {
+    console.log(this.props);
     const { tarefa } = this.state;
-    const tasks = JSON.parse(localStorage.getItem('todo'));
-    tasks.push(tarefa);
-    localStorage.setItem('todo', JSON.stringify(tasks));
+    const { receiveNewTask } = this.props;
+    receiveNewTask(tarefa);
     this.setState({ tarefa: '' });
-    this.forceUpdate();
   }
 
   render() {
@@ -33,5 +33,9 @@ class NewTaskBar extends React.Component {
     );
   }
 }
+
+NewTaskBar.propTypes = {
+  receiveNewTask: PropTypes.func.isRequired,
+};
 
 export default NewTaskBar;

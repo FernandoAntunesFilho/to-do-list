@@ -6,18 +6,12 @@ class Todo extends React.Component {
     super(props);
 
     this.state = {
-      todo: ['q'],
+      todo: [],
       // done: ['Tarefa 4', 'Tarefa 5'],
     };
   }
 
-  async componentDidMount() {
-    const todoList = JSON.parse(localStorage.getItem('todo'));
-    await this.setState({
-      todo: todoList,
-    });
-    this.tastksList();
-  }
+  async componentDidMount() { this.tastksList(); }
 
   tastksList() {
     const { todo } = this.state;
