@@ -20,6 +20,7 @@ class NewTaskBar extends React.Component {
     tasks.push(tarefa);
     localStorage.setItem('todo', JSON.stringify(tasks));
     this.setState({ tarefa: '' });
+    this.forceUpdate();
   }
 
   render() {

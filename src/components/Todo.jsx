@@ -6,23 +6,29 @@ class Todo extends React.Component {
     super(props);
 
     this.state = {
-      todo: ['Tarefa 1', 'Tarefa 2', 'Tarefa 3'],
+      todo: ['q'],
       // done: ['Tarefa 4', 'Tarefa 5'],
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const todoList = JSON.parse(localStorage.getItem('todo'));
+    await this.setState({
+      todo: todoList,
+    });
     this.tastksList();
   }
 
   tastksList() {
     const { todo } = this.state;
-    todo.forEach((task) => {
-      const todoList = document.querySelector('.todo-list');
-      const p = document.createElement('p');
-      p.innerText = task;
-      todoList.appendChild(p);
-    });
+    if (todo) {
+      todo.forEach((task) => {
+        const todoList = document.querySelector('.todo-list');
+        const p = document.createElement('p');
+        p.innerText = task;
+        todoList.appendChild(p);
+      });
+    }
   }
 
   render() {
