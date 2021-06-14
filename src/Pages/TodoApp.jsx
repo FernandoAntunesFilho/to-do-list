@@ -18,10 +18,9 @@ class TodoApp extends React.Component {
   }
 
   receiveNewTask(task) {
-    console.log(task);
     const { todo } = this.state;
     todo.push(task);
-    this.setState({ todo: task });
+    this.setState({ todo });
   }
 
   // componentDidMount() {
@@ -33,11 +32,12 @@ class TodoApp extends React.Component {
   // }
 
   render() {
+    const { todo } = this.state;
     return (
       <div>
         <Header />
-        <NewTaskBar />
-        <Todo receiveNewTask={() => this.receiveNewTask()} />
+        <NewTaskBar receiveNewTask={this.receiveNewTask} />
+        <Todo todo={todo} />
         <Done />
       </div>
     );

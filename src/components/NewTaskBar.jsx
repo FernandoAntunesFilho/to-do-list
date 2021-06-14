@@ -16,7 +16,6 @@ class NewTaskBar extends React.Component {
   }
 
   saveTask() {
-    console.log(this.props);
     const { tarefa } = this.state;
     const { receiveNewTask } = this.props;
     receiveNewTask(tarefa);
