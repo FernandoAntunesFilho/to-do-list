@@ -8,11 +8,11 @@ class Todo extends React.Component {
       <div>
         <h3>A fazer</h3>
         <div className="todo-list">
-          {/* { todo.map((task) => <p key={task}>{ task }</p>) } */}
-          { todo.map((task) => ([<p>{task}</p>, <h1>{task}</h1>])) }
-
-          {/* <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-          <label for="vehicle1"> I have a bike</label><br></br> */}
+          { todo.map((task) => ([
+            <input type="checkbox" name={task} value={task} />,
+            <label htmlFor={task}>{task}</label>,
+            <br />,
+          ])) }
         </div>
       </div>
     );
