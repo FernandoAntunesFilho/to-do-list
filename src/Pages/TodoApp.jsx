@@ -11,10 +11,18 @@ class TodoApp extends React.Component {
 
     this.state = {
       todo: [],
-      // done: [],
+      done: [],
     };
 
     this.receiveNewTask = this.receiveNewTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
+    this.addDoneTask = this.addDoneTask.bind(this);
+  }
+
+  addDoneTask(task) {
+    const { done } = this.state;
+    done.push(task);
+    this.setState({ done });
   }
 
   receiveNewTask(task) {
@@ -23,13 +31,16 @@ class TodoApp extends React.Component {
     this.setState({ todo });
   }
 
-  // componentDidMount() {
-  //   const todo = JSON.parse(localStorage.getItem('todo'));
-  //   const done = JSON.parse(localStorage.getItem('done'));
+  removeTask(task) {
+    const { todo } = this.state;
+    const index = todo.indexOf(task);
+    if (index > -1) {
+      todo.splice(index, 1);
+    }
+    this.setState({ todo });
 
-  //   if (!todo) localStorage.setItem('todo', JSON.stringify([]));
-  //   if (!done) localStorage.setItem('done', JSON.stringify([]));
-  // }
+    this.addDoneTask(task);
+  }
 
   render() {
     const { todo } = this.state;
@@ -37,7 +48,7 @@ class TodoApp extends React.Component {
       <div>
         <Header />
         <NewTaskBar receiveNewTask={this.receiveNewTask} />
-        <Todo todo={todo} />
+        <Todo todo={todo} removeTask={this.removeTask} />
         <Done />
       </div>
     );
