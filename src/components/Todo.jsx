@@ -12,7 +12,7 @@ class Todo extends React.Component {
         <div>
           { todo.map((task) => ([
             <input onClick={(e) => removeTask(e.target.value)} key={task} type="checkbox" name={task} value={task} />,
-            <label key={`${task}-label`} htmlFor={task}>{task}</label>,
+            <label className="tarefa" key={`${task}-label`} htmlFor={task}>{task}</label>,
             <button key={`${task}-button`} onClick={() => deleteTask(task, 'todo')} type="button">x</button>,
             <br key={`${task}-br`} />,
           ])) }

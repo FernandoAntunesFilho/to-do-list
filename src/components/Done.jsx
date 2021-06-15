@@ -12,7 +12,7 @@ class Done extends React.Component {
         <div>
           { done.map((task) => ([
             <input onClick={(e) => uncheckDoneTask(e.target.value)} defaultChecked="true" key={task} type="checkbox" name={task} value={task} />,
-            <label key={`${task}-label`} htmlFor={task}>{task}</label>,
+            <label className="tarefa" key={`${task}-label`} htmlFor={task}>{task}</label>,
             <button key={`${task}-button`} onClick={() => deleteTask(task, 'done')} type="button">x</button>,
             <br key={`${task}-br`} />,
           ])) }
