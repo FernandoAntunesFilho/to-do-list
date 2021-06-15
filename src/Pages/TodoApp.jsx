@@ -14,6 +14,8 @@ class TodoApp extends React.Component {
       done: [],
     };
 
+    // PRÓXIMOS PASSOS: FAZER O CSS
+
     this.receiveNewTask = this.receiveNewTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
     this.addDoneTask = this.addDoneTask.bind(this);
