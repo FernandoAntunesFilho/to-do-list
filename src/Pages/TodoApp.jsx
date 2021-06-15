@@ -18,6 +18,7 @@ class TodoApp extends React.Component {
     this.removeTask = this.removeTask.bind(this);
     this.addDoneTask = this.addDoneTask.bind(this);
     this.uncheckDoneTask = this.uncheckDoneTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   addDoneTask(task) {
@@ -54,14 +55,34 @@ class TodoApp extends React.Component {
     this.receiveNewTask(task);
   }
 
+  deleteTask(task, type) {
+    if (type === 'todo') {
+      const { todo } = this.state;
+      const index = todo.indexOf(task);
+      if (index > -1) {
+        todo.splice(index, 1);
+      }
+      this.setState({ todo });
+    }
+
+    if (type === 'done') {
+      const { done } = this.state;
+      const index = done.indexOf(task);
+      if (index > -1) {
+        done.splice(index, 1);
+      }
+      this.setState({ done });
+    }
+  }
+
   render() {
     const { todo, done } = this.state;
     return (
       <div>
         <Header />
         <NewTaskBar receiveNewTask={this.receiveNewTask} />
-        <Todo todo={todo} removeTask={this.removeTask} />
-        <Done done={done} uncheckDoneTask={this.uncheckDoneTask} />
+        <Todo todo={todo} removeTask={this.removeTask} deleteTask={this.deleteTask} />
+        <Done done={done} uncheckDoneTask={this.uncheckDoneTask} deleteTask={this.deleteTask} />
       </div>
     );
   }
