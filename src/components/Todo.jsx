@@ -9,7 +9,7 @@ class Todo extends React.Component {
     return (
       <div>
         <h3>A fazer</h3>
-        <div className="todo-list">
+        <div>
           { todo.map((task) => ([
             <input onClick={(e) => removeTask(e.target.value)} key={task} type="checkbox" name={task} value={task} />,
             <label key={`${task}-label`} htmlFor={task}>{task}</label>,

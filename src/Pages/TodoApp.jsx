@@ -43,13 +43,13 @@ class TodoApp extends React.Component {
   }
 
   render() {
-    const { todo } = this.state;
+    const { todo, done } = this.state;
     return (
       <div>
         <Header />
         <NewTaskBar receiveNewTask={this.receiveNewTask} />
         <Todo todo={todo} removeTask={this.removeTask} />
-        <Done />
+        <Done done={done} />
       </div>
     );
   }
