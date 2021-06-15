@@ -19,18 +19,40 @@ class TodoApp extends React.Component {
     this.addDoneTask = this.addDoneTask.bind(this);
     this.uncheckDoneTask = this.uncheckDoneTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    this.updateLocalStorage = this.updateLocalStorage.bind(this);
+  }
+
+  componentDidMount() {
+    if (!JSON.parse(localStorage.getItem('todo'))) localStorage.setItem('todo', JSON.stringify([]));
+    if (!JSON.parse(localStorage.getItem('done'))) localStorage.setItem('done', JSON.stringify([]));
+
+    const todo = JSON.parse(localStorage.getItem('todo'));
+    const done = JSON.parse(localStorage.getItem('done'));
+
+    this.setState({
+      todo,
+      done,
+    });
+  }
+
+  updateLocalStorage() {
+    const { todo, done } = this.state;
+    localStorage.setItem('todo', JSON.stringify(todo));
+    localStorage.setItem('done', JSON.stringify(done));
   }
 
   addDoneTask(task) {
     const { done } = this.state;
     done.push(task);
     this.setState({ done });
+    this.updateLocalStorage();
   }
 
   receiveNewTask(task) {
     const { todo } = this.state;
     todo.push(task);
     this.setState({ todo });
+    this.updateLocalStorage();
   }
 
   removeTask(task) {
@@ -40,6 +62,7 @@ class TodoApp extends React.Component {
       todo.splice(index, 1);
     }
     this.setState({ todo });
+    this.updateLocalStorage();
 
     this.addDoneTask(task);
   }
@@ -51,6 +74,7 @@ class TodoApp extends React.Component {
       done.splice(index, 1);
     }
     this.setState({ done });
+    this.updateLocalStorage();
 
     this.receiveNewTask(task);
   }
@@ -63,6 +87,7 @@ class TodoApp extends React.Component {
         todo.splice(index, 1);
       }
       this.setState({ todo });
+      this.updateLocalStorage();
     }
 
     if (type === 'done') {
@@ -72,6 +97,7 @@ class TodoApp extends React.Component {
         done.splice(index, 1);
       }
       this.setState({ done });
+      this.updateLocalStorage();
     }
   }
 
