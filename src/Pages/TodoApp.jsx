@@ -22,6 +22,7 @@ class TodoApp extends React.Component {
     this.uncheckDoneTask = this.uncheckDoneTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
     this.updateLocalStorage = this.updateLocalStorage.bind(this);
+    this.checkTaskIsUnic = this.checkTaskIsUnic.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,13 @@ class TodoApp extends React.Component {
       todo,
       done,
     });
+  }
+
+  checkTaskIsUnic(newTask) {
+    const { todo, done } = this.state;
+    const allTasks = todo.concat(done);
+
+    return allTasks.includes(newTask);
   }
 
   updateLocalStorage() {
@@ -108,7 +116,7 @@ class TodoApp extends React.Component {
     return (
       <div>
         <Header />
-        <NewTaskBar receiveNewTask={this.receiveNewTask} />
+        <NewTaskBar checkTaskIsUnic={this.checkTaskIsUnic} receiveNewTask={this.receiveNewTask} />
         <div className="tasks-container">
           <Todo todo={todo} removeTask={this.removeTask} deleteTask={this.deleteTask} />
           <Done done={done} uncheckDoneTask={this.uncheckDoneTask} deleteTask={this.deleteTask} />

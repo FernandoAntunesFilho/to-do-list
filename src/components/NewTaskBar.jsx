@@ -17,9 +17,13 @@ class NewTaskBar extends React.Component {
 
   saveTask() {
     const { tarefa } = this.state;
-    const { receiveNewTask } = this.props;
-    receiveNewTask(tarefa);
-    this.setState({ tarefa: '' });
+    const { receiveNewTask, checkTaskIsUnic } = this.props;
+    if (!checkTaskIsUnic(tarefa)) {
+      receiveNewTask(tarefa);
+      this.setState({ tarefa: '' });
+    } else {
+      alert(`Tarefa "${tarefa} já existe"`);
+    }
   }
 
   render() {
@@ -35,6 +39,7 @@ class NewTaskBar extends React.Component {
 
 NewTaskBar.propTypes = {
   receiveNewTask: PropTypes.func.isRequired,
+  checkTaskIsUnic: PropTypes.func.isRequired,
 };
 
 export default NewTaskBar;
