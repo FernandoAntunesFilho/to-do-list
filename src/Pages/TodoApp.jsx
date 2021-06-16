@@ -121,6 +121,7 @@ class TodoApp extends React.Component {
           <Todo todo={todo} removeTask={this.removeTask} deleteTask={this.deleteTask} />
           <Done done={done} uncheckDoneTask={this.uncheckDoneTask} deleteTask={this.deleteTask} />
         </div>
+        <p className="credits">Desenvolvido por Fernando Antunes | 2021</p>
       </div>
     );
   }
