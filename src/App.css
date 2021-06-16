@@ -6,7 +6,6 @@
 }
 
 .taskbar-container {
-  /* background-color: blue; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,13 +27,11 @@
 .tasks-container {
   padding-top: 2%;
   padding-bottom: 2%;
-  /* background-color: yellow; */
   display: flex;
   justify-content: space-around;
 }
 
 .tasks-container h3 {
-  /* border-bottom: 1px solid black; */
   display: flex;
   justify-content: center;
   font-size: x-large;
@@ -44,7 +41,6 @@
 .todo-container {
   background-color: #49BEAA;
   width: 45%;
-  /* border: 1px solid black; */
   border-radius: 10px;
   padding-bottom: 2%;
 }
@@ -64,7 +60,6 @@
 .done-container {
   background-color: #49BEAA;;
   width: 45%;
-  /* border: 1px solid black; */
   border-radius: 10px;
   padding-bottom: 2%;
 }
@@ -92,4 +87,42 @@
 .task-label {
   font-family: 'Pangolin', cursive;
   font-size: larger;
+}
+
+@media only screen and (max-width: 360px) {
+  .taskbar-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .taskbar-container input {
+    width: 90%;
+    height: 40px;
+    font-size: xx-large;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  
+  .taskbar-container button {
+    height: 40px;
+    width: 90%;
+    font-size: x-large;
+  }
+
+  .tasks-container {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .todo-container {
+    width: 90%;
+    margin-bottom: 8px;
+  }
+
+  .done-container {
+    width: 90%;
+  }
 }
