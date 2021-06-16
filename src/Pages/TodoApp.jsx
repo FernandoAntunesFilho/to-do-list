@@ -109,8 +109,10 @@ class TodoApp extends React.Component {
       <div>
         <Header />
         <NewTaskBar receiveNewTask={this.receiveNewTask} />
-        <Todo todo={todo} removeTask={this.removeTask} deleteTask={this.deleteTask} />
-        <Done done={done} uncheckDoneTask={this.uncheckDoneTask} deleteTask={this.deleteTask} />
+        <div className="tasks-container">
+          <Todo todo={todo} removeTask={this.removeTask} deleteTask={this.deleteTask} />
+          <Done done={done} uncheckDoneTask={this.uncheckDoneTask} deleteTask={this.deleteTask} />
+        </div>
       </div>
     );
   }

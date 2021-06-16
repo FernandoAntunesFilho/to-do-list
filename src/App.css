@@ -1,7 +1,95 @@
 .header {
   text-align: center;
+  font-size: 50px;
+  color: #EEB868;
+  text-shadow: 3px 5px 2px #EF767A;
 }
 
-.tarefa {
+.taskbar-container {
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskbar-container input {
+  width: 60%;
+  margin-right: 1%;
+  height: 40px;
+  font-size: xx-large;
+}
+
+.taskbar-container button {
+  height: 40px;
+  width: 15%;
+  font-size: x-large;
+}
+
+.tasks-container {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.tasks-container h3 {
+  /* border-bottom: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  color: #456990;
+}
+
+.todo-container {
+  background-color: #49BEAA;
+  width: 45%;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  padding-bottom: 2%;
+}
+
+.todo-container button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+
+  color: red;
+  font-size: larger;
+}
+
+.done-container {
+  background-color: #49BEAA;;
+  width: 45%;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  padding-bottom: 2%;
+}
+
+.done-container button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+
+  color: red;
+  font-size: larger;
+}
+
+.task-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1%;
+  padding-right: 1%;
+  
+}
+
+.task-label {
   font-family: 'Pangolin', cursive;
+  font-size: larger;
 }

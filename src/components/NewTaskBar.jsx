@@ -25,7 +25,7 @@ class NewTaskBar extends React.Component {
   render() {
     const { tarefa } = this.state;
     return (
-      <div>
+      <div className="taskbar-container">
         <input onChange={(e) => this.handleChange(e.target.value)} value={tarefa} type="text" placeholder="Nova tarefa" />
         <button onClick={() => this.saveTask()} type="button">Adicionar</button>
       </div>
