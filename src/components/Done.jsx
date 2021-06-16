@@ -11,12 +11,12 @@ class Done extends React.Component {
         <h3>Feito</h3>
         <div>
           { done.map((task) => ([
-            <div className="task-container">
-              <div className="part-a">
+            <div key={`${task}-container`} className="task-container">
+              <div key={`${task}-a`} className="part-a">
                 <input onClick={(e) => uncheckDoneTask(e.target.value)} defaultChecked="true" key={task} type="checkbox" name={task} value={task} />
                 <label className="task-label" key={`${task}-label`} htmlFor={task}>{task}</label>
               </div>
-              <div className="part-b">
+              <div key={`${task}-b`} className="part-b">
                 <button key={`${task}-button`} onClick={() => deleteTask(task, 'done')} type="button">x</button>
                 <br key={`${task}-br`} />
               </div>
